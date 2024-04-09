@@ -1,0 +1,31 @@
+﻿@model RatingBiblio.Models.Book
+
+<h2>Добавление книги</h2>
+
+<form asp-action="Add">
+    <div class="form-group">
+        <label asp-for="Title">Название книги</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Author">Автор</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastIssueDate">Дата последней выдачи</label>
+        <input asp-for="LastIssueDate" type="date" class="form-control" />
+        <span asp-validation-for="LastIssueDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IssuedTo">Выдается</label>
+        <input asp-for="IssuedTo" class="form-control" />
+        <span asp-validation-for="IssuedTo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsInLibrary">Находится в библиотеке</label>
+        <input asp-for="IsInLibrary" type="checkbox" />
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>

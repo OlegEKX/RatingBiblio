@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RatingBiblio.Models.Book>
+@*тип модели, который используется в представлении*@
+@*представление ожидает коллекцию объектов типа Book*@
+
+<h2>Библиотека книг</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название книги</th>
+            <th>Автор</th>
+            <th>Дата последнего выпуска</th>
+            <th>Выдается</th>
+            <th>Находится в библиотеке</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.LastIssueDate.ToShortDateString()</td>
+                    <td>@book.IssuedTo</td>
+                        <td>@(book.IsInLibrary ? "Да" : "Нет")</td> @*проверка на то, находится ли книга в библиотеке*@
+                        @*возврат одного из двух значений в зависимости от условия*@
+                        @*если условие истинно, то возвращается "Да", если Ложно, "Нет"*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@book.Id">Редактировать</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<a class = "btn btn-dark" href = "/biblio/add" role = "button">Добавить новую книгу</a>

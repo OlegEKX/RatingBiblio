@@ -22,6 +22,7 @@ namespace RatingBiblio
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<BookRepository>();
             services.AddControllersWithViews();
         }
 
@@ -46,7 +47,7 @@ namespace RatingBiblio
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Biblio}/{action=Index}/{id?}");
             });
         }
     }
